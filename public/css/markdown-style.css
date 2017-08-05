@@ -1,0 +1,143 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans|Special+Elite|Raleway);
+
+.options {
+	color: rgb(0,0,0,1);
+	cursor: pointer;
+}
+
+.options i {
+	margin-left: 10px;
+}
+
+.options i:hover {
+	color: #787878;
+}
+
+.left{
+	float: left;
+}
+
+.right{
+	float: right;
+}
+
+.container {
+	width: 95%;
+	height: 90%;
+	margin: 10px auto;
+}
+
+.container #text-holder {
+	width: 47%;
+	height: 100%;
+}
+
+.container #text {
+	width: 100%;
+	height: 100%;
+    border: none;
+    overflow: auto;
+    outline: none;
+    resize:none;
+
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+
+    color: inherit;
+	background-color: inherit;
+
+    padding: 22px 5px 0 5px;
+	font-family: 'Raleway', sans-serif;
+	
+	font-size: 18px;
+	line-height: 30px;
+	font-weight: 300;
+	text-align: left;
+}
+
+.container #preview {
+	width: 47%;
+	float: right;
+	display: inline-block;
+	overflow-y: auto;
+	overflow-x: hidden;
+	word-wrap: break-word;
+
+
+	font-family: 'Open Sans', sans-serif;
+	font-size: 18px;
+	line-height: 30px;
+	font-weight: 300;
+	text-align: left;
+}
+
+.help-wrapper {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	text-align:center;
+	/*margin-left: 2%;*/
+	border-radius: 5px;
+	background: #efefef;
+	padding:1%;
+}
+
+.help-wrapper .hellper{
+	position: relative;
+	width: 80%;
+	margin:0 auto;
+	background-color: rgba(0,0,0,0.1);
+	border-radius: 5px;
+	padding: 3px 5px 3px 5px;
+	font-family: 'Open Sans', sans-serif;
+	text-align: right;
+}
+
+.help-wrapper .hellper table {
+	width: 100%;
+	font-size: 12px;
+	text-align: left;
+	border: 0;
+}
+
+.help-wrapper .hellper table .symbol {
+	display: inline-block;
+	text-align: right;
+	width: 100px;
+	overflow: hidden;
+	margin-right: 15px;
+}
+
+.help-wrapper .hellper table .info {
+	display: inline-block;
+	text-align: left;
+	margin-left: 15px;
+}
+
+.help-wrapper .hellper table .symbol {font-family: 'Open Sans', sans-serif;}
+.help-wrapper .hellper table .info {font-family: 'Special Elite', cursive;}
+
+.help-wrapper .hellper .close {
+	position: absolute;
+	right: 7px;
+	cursor: pointer;
+}
+
+.help-wrapper .hellper .close:hover {color: #787878;}
+
+@media (max-width: 1080px) {
+  .help-wrapper .hellper table .symbol {margin-right: 0;}
+  .help-wrapper .hellper table .info {margin-left: 0;}
+}
+
+@media (max-width: 920px) {
+	.help-wrapper .hellper {width: 97%}
+}
+
+@media (max-width: 750px) {
+	.help-wrapper .hellper {display: none;}
+	.options .fa-info-circle {display: none;}
+	.container #text, .container #preview {float: none;width: 100%;height: 40%;}
+}
