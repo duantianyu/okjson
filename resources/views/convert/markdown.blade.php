@@ -11,6 +11,10 @@ Markdown在线编辑器 - 在线JSON校验格式化工具(OK JSON)
 
 @section('head_css')
 <link href="{{ asset('css/markdown-style.css') }}" rel="stylesheet" type="text/css">
+<style type="text/css">
+.table>tbody>tr>td{padding:2px;}
+.help-info{top:1%;right:0.5%;position: absolute;}
+</style>
 @stop
 
 
@@ -104,4 +108,12 @@ Markdown在线编辑器 - 在线JSON校验格式化工具(OK JSON)
 <script src="{{ asset('js/markdown/Markdown.Sanitizer.js') }}"></script>
 <script src="{{ asset('js/markdown/Markdown.Extra.js') }}"></script>
 <script src="{{ asset('js/markinit.js') }}"></script>
+<script type="text/javascript">
+(function () {
+    $('body').css('padding-bottom', $('.help-wrapper').height() + 'px');
+    $('.close').click(function () {
+        $('body').css('padding-bottom', '10px');
+    });
+})();
+</script>
 @stop

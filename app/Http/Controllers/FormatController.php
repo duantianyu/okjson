@@ -34,19 +34,19 @@ class FormatController extends Controller
         $method = $request->input('method', '');
         $parameter = $request->input('parameter', '');
 
-        if(!in_array($method, ['post', 'get'])){
+        if(!in_array(strtolower($method), ['post', 'get'])){
             return '请选择请求方式';
         }
 
         $curl = new Curl();
         if($parameter != ''){
-            $parameter_array = json_decode($parameter, true);
+            json_decode($parameter, true);
             if(json_last_error() == JSON_ERROR_NONE){
-                $parameters = ['form_params' => $parameter_array];
+                $curl->headers = ['Content-Type' => 'application/json;charset=utf-8'];
             }else{
-                $parameters = ['body' => $parameter];
+                $parameter = urldecode($parameter);
             }
-            $res = $curl->request($method, $url, $parameters);
+            $res = $curl->request($method, $url, $parameter);
         }else{
             $res = $curl->request($method, $url);
         }
