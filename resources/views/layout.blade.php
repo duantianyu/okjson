@@ -109,6 +109,7 @@
                 <li class="dropdown"><a href="/#" target="_self" class="dropdown-toggle" data-toggle="dropdown">常用工具 <i class="fa fa-caret-down"></i></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="/tools/wordcount" target="_self">字数计算</a></li>
+                        <li><a href="/tools/regex" target="_self">正则测试</a></li>
                         <li><a href="/convert/qr" target="_self">二维码生成</a></li>
                         <li><a href="/encrypt/uuid" target="_self">UUID在线生成</a></li>
                         <li><a href="/tools/shortcut" target="_self">网址快捷方式</a></li>

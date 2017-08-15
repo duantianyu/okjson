@@ -136,6 +136,9 @@ Route::get('/tools/downpage', function () {
 Route::get('/tools/wordcount', function () {
     return view('tools.wordcount');
 });
+Route::get('/tools/regex', function () {
+    return view('tools.regex');
+});
 Route::post('/screen_shot', ['as' => 'screen_shot', 'uses' => 'ToolsController@screen_shot']);
 Route::post('/shortcut', ['as' => 'shortcut', 'uses' => 'ToolsController@shortcut']);
 Route::post('/down_page', ['as' => 'shortcut', 'uses' => 'ToolsController@down_page']);

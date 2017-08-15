@@ -84,6 +84,7 @@
     </p>
     <p>常用工具:
         <a href="/tools/wordcount" class="alert-link">字数计算</a>
+        <a href="/tools/regex" class="alert-link">正则测试</a>
         <a href="/convert/qr/" class="alert-link">二维码生成</a>
         <a href="/encrypt/uuid" class="alert-link">UUID在线生成</a>
         <a href="/tools/shortcut" class="alert-link">网址快捷方式</a>

@@ -1,0 +1,67 @@
+#options                    {height:25px; cursor:default; padding: 0; overflow: hidden;}
+#options input              {vertical-align:middle; margin:-2px 0 0 0;}
+#options .flag              {font-weight:bold; color:#8f8859; font-size:85%;}
+#options .flag .plain       {font-weight:normal; font-style:italic; color:#444;}
+#options ul                 {margin-left:30px;}
+#options li                 {float:left; line-height:25px; margin-left:12px;}
+#options li.optGroup        {float:right; font-weight:bold; margin:0; padding:0 5px;}
+#options li.optGroup:hover,
+#options li.hover           {background:#ceb978;}
+#options li ul              {display:none; border-bottom:1px solid #ceb978; position:absolute; top:25px; right:5px;}
+#options li:hover ul,
+#options li.hover ul        {display:block;}
+#options li li              {background:#e3d8a2; border:1px solid #ceb978; border-bottom:0; float:none; margin:0; padding-left:4px; width:178px;}
+
+/* Common Regex */
+#commonRegex                {margin:10px 0; padding:3px 0; }
+#commonRegex .bd            {padding:0; }
+#commonRegex .bd li         {display:inline-block; *display:inline; *zoom:1; margin:0; margin-right:10px; height:25px; line-height:25px;}
+
+/* Hacks: IE6 and lower */
+* html #options ul          {margin-left:0; padding-left:15px;}
+* html #options ul ul       {padding:0;}
+* html #options li          {line-height:normal; padding:4px 0;}
+* html #options li.optGroup {padding:4px 5px; height:18px;}
+* html #options li ul       {top:24px; right:16px;}
+
+.smartField pre, .smartField textarea {
+    white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+    white-space: -pre-wrap;      /* Opera 4-6 */
+    white-space: -o-pre-wrap;    /* Opera 7 */
+    white-space: pre-wrap;       /* css-3 */
+    word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    overflow-wrap: break-word;
+    word-break: break-all!important;
+}
+
+/*#searchText, #searchBg, #inputText, #inputBg {padding: 3px 5px;}*/
+#search                     {min-height:60px; width:100%;}
+#input                      {min-height:375px; width:100%; margin-top:10px;}
+.smartField                 {position:relative; overflow:auto;}
+.smartField pre,
+.smartField textarea        {font:100% "courier new",monospace; width:100%;}
+.smartField pre             {z-index:0; color:#f9f9f9;}
+.smartField textarea        {z-index:1; background:transparent; position:absolute; top:0; height:100%; min-height:100%; overflow:hidden;}
+
+/* Highlighting ------------------------------------- */
+#searchBg, #inputBg{padding:6px 12px;}
+b, i, u       {font-weight:normal; font-style:normal; text-decoration:none; margin: 0!important;}
+#input b      {background:#99ccff; color:#99ccff;}
+#input i      {background:#ff9999; color:#ff9999;}
+#search b     {background:#aad1f7; color:#aad1f7;}
+#search i     {background:#f9ca69; color:#f9ca69;}
+#search i b   {background:#f7a700; color:#f7a700;}
+#search i u   {background:#efba4a; color:#efba4a;}
+#search b.g1  {background:#d2f854; color:#d2f854;}
+#search b.g2  {background:#9ec70c; color:#9ec70c;}
+#search b.g3  {background:#ecc9f7; color:#ecc9f7;}
+#search b.g4  {background:#54b70b; color:#54b70b;}
+#search b.g5  {background:#b688cf; color:#b688cf;}
+#search b.err {background:#ff4300 !important; color:#ff4300 !important;}
+
+.smartField pre {
+    padding: 0;
+    background: #fff;
+    border: none;
+    border-radius: 0;
+}
