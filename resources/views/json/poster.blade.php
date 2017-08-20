@@ -45,7 +45,11 @@
         </div>
 
         <div style="height: 10px;"></div>
+        <textarea class="form-control header" rows="2" spellcheck="false" placeholder='请输入header，格式如 Cache-Control=no-cache&Accept-Encoding=gzip, deflate 或者 json格式'></textarea>
+        <div style="height: 10px;"></div>
         <textarea class="form-control parameter" rows="2" spellcheck="false" placeholder='请输入参数如 p=2&m=total 或者 json'></textarea>
+        <div style="height: 10px;"></div>
+        <textarea class="form-control cookie" rows="2" spellcheck="false" placeholder='请输入cookie，格式如 B=115.100.62.7.1401937092035530; bdshare_firstime=1401937092199;'></textarea>
         <div style="height: 10px;"></div>
         <div class="form-group form-inline">
             &nbsp;&nbsp;<button type="button" class="btn btn-primary format send"> SEND </button>
@@ -103,6 +107,8 @@
         var url = $(".url").val();
         var method = $("#httpMethod").text();
         var parameter = $(".parameter").val();
+        var cookie = $(".cookie").val();
+        var header = $(".header").val();
         var _token = '{{ csrf_token() }}';
 
         if(!checkUrl(url)){
@@ -115,6 +121,8 @@
             url: url,
             method: method,
             parameter: parameter,
+            cookie: cookie,
+            header: header,
             _token: _token
         }, function(d){
             json_input.val(d);

@@ -33,19 +33,39 @@ class FormatController extends Controller
         $url = $request->input('url', '');
         $method = $request->input('method', '');
         $parameter = $request->input('parameter', '');
+        $cookie = $request->input('cookie', '');
+        $header = $request->input('header', '');
 
         if(!in_array(strtolower($method), ['post', 'get'])){
             return '请选择请求方式';
         }
 
         $curl = new Curl();
-        if($parameter != ''){
+
+        if($cookie){
+            $curl->cookie = $cookie;
+        }
+
+        $curl->headers = [];
+        if($header){
+            $headers = [];
+            json_decode($header, true);
+            if(json_last_error() == JSON_ERROR_NONE){
+                $headers = json_decode($header, true);
+            }else{
+                parse_str(urldecode($header), $headers);
+            }
+            $curl->headers = $headers;
+        }
+
+        if($parameter){
             json_decode($parameter, true);
             if(json_last_error() == JSON_ERROR_NONE){
-                $curl->headers = ['Content-Type' => 'application/json;charset=utf-8'];
+                $curl->headers = array_merge(['Content-Type' => 'application/json;charset=utf-8'], $curl->headers);
             }else{
                 $parameter = urldecode($parameter);
             }
+
             $res = $curl->request($method, $url, $parameter);
         }else{
             $res = $curl->request($method, $url);
