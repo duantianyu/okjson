@@ -98,6 +98,13 @@
         text = $(this).text();
         $("#httpMethod").html(text + ' <span class="caret"></span>');
     });
+
+
+    $(".url").val(sessionStorage.getItem("url"));
+    $(".parameter").val(sessionStorage.getItem("parameter"));
+    $(".cookie").val(sessionStorage.getItem("cookie"));
+    $(".header").val(sessionStorage.getItem("header"));
+
     jsl.interactions.init('json_output');
     var json_input = $('#json_input');
     $(".send").on('click', function(){
@@ -110,6 +117,10 @@
         var cookie = $(".cookie").val();
         var header = $(".header").val();
         var _token = '{{ csrf_token() }}';
+        sessionStorage.setItem("url", url);
+        sessionStorage.setItem("parameter", parameter);
+        sessionStorage.setItem("cookie", cookie);
+        sessionStorage.setItem("header", header);
 
         if(!checkUrl(url)){
             json_input.val('请输入正确的URL');
