@@ -29,7 +29,7 @@ class ToolsController extends Controller
         'js' =>  [ 'tag' => 'script', 'attr' => 'src' ],
     ];
     protected $web_files;
-    protected $shortcut_name = 'www.608558.com.url';
+    protected $shortcut_name = 'okjson.zhangchunyu.cn.url';
     protected $web_log_str = "\r\n\r\n网页模板下载工具\r\n%s\r\n下载网页:%s";
     protected $screen_shot_opt = [
         ['width' => 1440, 'height' => 900],
@@ -92,7 +92,7 @@ Prop3=19,2';
         $res['status'] = 0;
         $res['msg'] = '';
         try{
-            $snappy = new Image('/usr/local/bin/wkhtmltoimage');
+            $snappy = new Image('/usr/bin/wkhtmltoimage');
             $snappy->generate($url, $name, $opt);
             $res['status'] = 1;
             $res['msg'] = $this->my_url . '/' . $name;

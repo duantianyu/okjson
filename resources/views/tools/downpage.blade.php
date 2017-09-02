@@ -27,7 +27,7 @@
         </div>
         <div class="form-group input-group">
             <span class="input-group-addon">网址</span>
-            <input type="text" id="url" name="url" class="form-control from" style="max-width:450px;" placeholder="https://www.608558.com/" value="https://www.baidu.com">
+            <input type="text" id="url" name="url" class="form-control from" style="max-width:450px;" placeholder="{{ env('APP_URL') }}" value="https://www.baidu.com">
             &nbsp;&nbsp;&nbsp;&nbsp;
             <button type="submit" class="btn btn-primary format analysis">分析</button>
         </div>

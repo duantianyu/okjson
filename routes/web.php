@@ -1,5 +1,5 @@
 <?php
-
+set_time_limit(0);
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -82,10 +82,10 @@ Route::get('/encrypt/base64', function () {
     return view('encrypt.base64');
 });
 Route::get('/encrypt/openssl_encode', function () {
-    return view('encrypt.openssl_encode', ['mode' => openssl_get_cipher_methods(), 'key' => md5('www.608558.com'), 'iv' => substr(md5('www.608558.com'), 0, 16)]);
+    return view('encrypt.openssl_encode', ['mode' => openssl_get_cipher_methods(), 'key' => md5(env('APP_URL')), 'iv' => substr(md5(env('APP_URL')), 0, 16)]);
 });
 Route::get('/encrypt/openssl_decode', function () {
-    return view('encrypt.openssl_decode', ['mode' => openssl_get_cipher_methods(), 'key' => md5('www.608558.com'), 'iv' => substr(md5('www.608558.com'), 0, 16)]);
+    return view('encrypt.openssl_decode', ['mode' => openssl_get_cipher_methods(), 'key' => md5(env('APP_URL')), 'iv' => substr(md5(env('APP_URL')), 0, 16)]);
 });
 Route::get('/encrypt/hash', function () {
     return view('encrypt.hash');
@@ -148,3 +148,5 @@ Route::post('/down_page', ['as' => 'shortcut', 'uses' => 'ToolsController@down_p
 Route::get('/page/fm', function () {
     return view('page.fm');
 });
+
+

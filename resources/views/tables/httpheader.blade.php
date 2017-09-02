@@ -166,7 +166,7 @@ HTTP请求头,响应头大全 - 在线JSON校验格式化工具(OOK JSON)
             <tr>
                 <td>Referer</td>
                 <td>先前网页的地址，当前请求网页紧随其后,即来路</td>
-                <td>Referer: https://www.608558.com</td>
+                <td>Referer: {{ env('APP_URL') }}</td>
             </tr>
             <tr>
                 <td>TE</td>
@@ -282,7 +282,7 @@ HTTP请求头,响应头大全 - 在线JSON校验格式化工具(OOK JSON)
             <tr>
                 <td>Location</td>
                 <td>用来重定向接收方到非请求URL的位置来完成请求或标识新的资源</td>
-                <td>Location: https://www.608558.com</td>
+                <td>Location: {{ env('APP_URL') }}</td>
             </tr>
             <tr>
                 <td>Pragma</td>
@@ -300,7 +300,7 @@ HTTP请求头,响应头大全 - 在线JSON校验格式化工具(OOK JSON)
                 <td><div> </div>
                     <p> </p>
                     <div id="_mcePaste">Refresh: 5; url=</div>
-                    <div>https://www.608558.com</div></td>
+                    <div>{{ env('APP_URL') }}</div></td>
             </tr>
             <tr>
                 <td>Retry-After</td>

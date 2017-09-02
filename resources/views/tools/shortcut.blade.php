@@ -22,7 +22,7 @@
         <form action="/shortcut" method="post" target="_blank">
                 <div class="form-group input-group">
                     <span class="input-group-addon">网址</span>
-                    <input type="text" id="url" name="url" class="form-control from" style="max-width:450px;" placeholder="http://www.608558.com" value="http://www.608558.com">{{ csrf_field() }}
+                    <input type="text" id="url" name="url" class="form-control from" style="max-width:450px;" placeholder="{{ env('APP_URL') }}" value="{{ env('APP_URL') }}">{{ csrf_field() }}
                     &nbsp;&nbsp;<button type="submit" name="generate" class="btn btn-primary format">创建并下载</button>
                 </div>
         </form>

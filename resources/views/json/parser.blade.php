@@ -25,7 +25,7 @@
         </div>
 
         <div class="ui-field json" id="editor" spellcheck="false" contenteditable="true">
-            {"sitename":"OK JSON","siteurl":"www.608558.com","keyword":"JSON在线校验,格式化JSON,json 在线校验","description":"JSON解析,json 在线校验,JSON格式化工具您要是觉得这个工具不错，请推荐给您的好友"}
+            {"sitename":"OK JSON","siteurl":"{{ env('APP_URL') }}","keyword":"JSON在线校验,格式化JSON,json 在线校验","description":"JSON解析,json 在线校验,JSON格式化工具您要是觉得这个工具不错，请推荐给您的好友"}
         </div>
 
         <div class="ui-aside">

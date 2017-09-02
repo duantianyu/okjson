@@ -20,7 +20,7 @@
         <button type="button" class="btn btn-primary format toUpperCase">转换成大写</button>
         <button type="button" class="btn btn-primary format toUpperLowerCase">大小写互转</button>
         <div style="height: 10px;"></div>
-        <textarea id="content" name="content" class="form-control" rows="8">www.608558.com</textarea>
+        <textarea id="content" name="content" class="form-control" rows="8">OkJson.ZhangChunYu.cn</textarea>
     </div>
 </div>
 @stop
