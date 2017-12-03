@@ -113,12 +113,16 @@ jsl.interactions = (function () {
 
         try {
             result = jsl.parser.parse(jsonVal);
-            
+
+            var formatVal = '';
             if(typeof JSON == 'object'){
-                $(name).val(JSON.stringify(JSON.parse(jsonVal), null, "    "))
+                formatVal = JSON.stringify(JSON.parse(jsonVal), null, "    ");
+                $(name).val(formatVal)
             }else{
-                $(name).val( jsl.format.formatJson(jsonVal) );
+                formatVal = jsl.format.formatJson(jsonVal)
+                $(name).val(formatVal);
             }
+            sessionStorage.setItem("jsonCon", formatVal);
 
             if (result) {
                 $('.v-result').text('正确的 JSON')
@@ -140,6 +144,7 @@ jsl.interactions = (function () {
 
                 jsonVal = jsl.format.formatJson($(name).val());
                 $(name).val(jsonVal);
+                sessionStorage.setItem("jsonCon", jsonVal);
                 result = jsl.parser.parse($(name).val());
 
             } catch(e) {

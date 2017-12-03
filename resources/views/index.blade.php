@@ -102,8 +102,9 @@
 <script src="{{ asset('js/jsl.parser.js') }}" type="text/javascript"></script>
 <script src="{{ asset('js/jsoninit.js') }}" type="text/javascript"></script>
 <script type="text/javascript">
-    $(function () {
-        jsl.interactions.init('json_input');
-    });
+$(function () {
+    $('#json_input').val(sessionStorage.getItem("jsonCon"));
+    jsl.interactions.init('json_input');
+});
 </script>
 @stop
