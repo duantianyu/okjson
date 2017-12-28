@@ -11,12 +11,13 @@ Unix时间戳转换工具 - 在线JSON校验格式化工具(OK JSON)
 
 @section('head_css')
 <link href="{{ asset('css/jquery-linedtextarea.css') }}" rel="stylesheet" type="text/css">
-<link href="{{ asset('css/bdsstyle.css') }}" rel="stylesheet" type="text/css">
 @stop
 
 
 @section('content')
-<div class="panel panel-default">
+@include('convert.tab')
+
+    <div class="panel panel-default">
     <div class="panel-heading">
         Unix时间戳, Unix时间戳转换工具
     </div>
@@ -142,28 +143,39 @@ Unix时间戳转换工具 - 在线JSON校验格式化工具(OK JSON)
         time1.val(Math.round(new Date().getTime()/1000));
         time2_bj.val(timestamptostr(Math.round(new Date().getTime()/1000)));
 
-        time2date.on("click", function(){
+        var time1_bj_fun = function(){
             time1_bj.val(timestamptostr(time1.val()));
-        });
-        date2time.on("click", function(){
+        }
+        time2date.on("click", time1_bj_fun);
+        time1.bind('input propertychange', time1_bj_fun);
+
+        var data2time_fun = function(){
             var t = time2_bj.val();
             t = t.replace(/-/g, "/");
             var d = new Date(t);
             time2.val(d.getTime()/1000);
-        });
+        }
+        time2_bj.bind('input propertychange', data2time_fun);
+        date2time.on("click", data2time_fun);
 
         time11.val(Math.round(new Date().getTime()/1000));
         time22_bj.val(timestamptostr(Math.round(new Date().getTime()/1000)));
 
-        time22date.on("click", function(){
+        var time11_bj_fun = function(){
             time11_bj.val(timestamptostr(time11.val()));
-        });
-        date22time.on("click", function(){
+        };
+        time22date.on("click", time11_bj_fun);
+        time11.bind('input propertychange', time11_bj_fun);
+
+        var time22_fun = function(){
             var t = time22_bj.val();
             t = t.replace(/-/g, "/");
             var d = new Date(t);
             time22.val(d.getTime()/1000);
-        });
+        }
+
+        time22_bj.bind('input propertychange', time22_fun);
+        date22time.on("click", time22_fun);
 
     })();
 </script>

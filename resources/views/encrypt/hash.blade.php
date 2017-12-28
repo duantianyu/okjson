@@ -11,6 +11,7 @@
 
 
 @section('content')
+@include('encrypt.tab')
 <div class="panel panel-default">
     <div class="panel-heading">
         在线Hash计算器

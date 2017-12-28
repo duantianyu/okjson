@@ -7,7 +7,6 @@
 
 @section('head_css')
     <link href="{{ asset('css/jquery-linedtextarea.css') }}" rel="stylesheet" type="text/css">
-    <link href="{{ asset('css/bdsstyle.css') }}" rel="stylesheet" type="text/css">
 @stop
 
 
@@ -21,7 +20,7 @@
 
     <div class="panel-body">
 
-        <textarea style="width: 100%; outline:none;" rows="20" id="json_input" spellcheck="false" placeholder='请输入需要校验的json字符串'></textarea>
+        <textarea style="width: 100%; outline:none;" rows="28" id="json_input" spellcheck="false" placeholder='请输入需要校验的json字符串'></textarea>
 
         <div style="height: 10px;"></div>
 
@@ -31,6 +30,7 @@
         <span style="padding-left:15px;">&nbsp;&nbsp;试试:&nbsp;&nbsp;
             <a href="/json/parser/?f=1" target="_blank">JSON在线视图</a>&nbsp;&nbsp;
             <a href="/json/format/?f=1" target="_blank">JSON格式化高亮</a>&nbsp;&nbsp;
+            <a href="/json/poster">Poster</a>
         </span>
 
         <div style="height: 10px;"></div>
@@ -40,57 +40,65 @@
 </div>
 
 
-<div class="alert alert-info" role="alert">
-    <p><strong>网站地图</strong></p>
-    <p>JSON相关:
-        <a href="/" class="alert-link">JSON格式化校验</a>
-        <a href="/json/poster" class="alert-link">Poster</a>
-        <a href="/json/parser" class="alert-link">JSON在线视图</a>
-        <a href="/json/format" class="alert-link">JSON格式化高亮</a>
-    </p>
+<div class="well map-div">
+    <p align="center"><strong>网站地图</strong></p>
+    <p>JSON相关</p>
+    <div class="map">
+        <a href="/">JSON格式化校验</a>
+        <a href="/json/poster">Poster</a>
+        <a href="/json/parser">JSON在线视图</a>
+        <a href="/json/format">JSON格式化高亮</a>
+    </div>
 
-    <p>HTML相关:
-        <a href="/format/xml" class="alert-link">XML格式化工具</a>
-        <a href="/format/js" class="alert-link">HTML/JS格式化</a>
-        <a href="/format/css" class="alert-link">CSS压缩/格式化</a>
-        <a href="/format/sql" class="alert-link">SQL格式化</a>
-    </p>
+    <p>HTML相关</p>
+    <div class="map">
+        <a href="/format/xml">XML格式化工具</a>
+        <a href="/format/js">HTML/JS格式化</a>
+        <a href="/format/css">CSS压缩/格式化</a>
+        <a href="/format/sql">SQL格式化</a>
+    </div>
 
-    <p>转换工具:
-        <a href="/convert/time" class="alert-link">Unix时间戳</a>
-        <a href="/convert/url" class="alert-link">URL编码/解码</a>
-        <a href="/convert/markdown" class="alert-link">Markdown编辑器</a>
-        <a href="/convert/n2a" class="alert-link">Native/Asscii编码互转</a>
-        <a href="/convert/hex" class="alert-link">任意进制转换</a>
-        <a href="/convert/rgb" class="alert-link">色值转换工具</a>
-        <a href="/convert/togglecase" class="alert-link">字母大小写转换</a>
-        <a href="/convert/cn_tw" class="alert-link">中文简体繁体转换</a>
-    </p>
+    <p>转换工具</p>
+    <div class="map">
+        <a href="/convert/time">Unix时间戳</a>
+        <a href="/convert/url">URL编码/解码</a>
+        <a href="/convert/markdown">Markdown编辑器</a>
+        <a href="/convert/n2a">Native/Asscii编码互转</a>
+        <a href="/convert/hex">任意进制转换</a>
+        <a href="/convert/rgb">色值转换工具</a>
+        <a href="/convert/togglecase">字母大小写转换</a>
+        <a href="/convert/cn_tw">中文简体繁体转换</a>
+    </div>
 
-    <p>加密/解密:
-        <a href="/encrypt/md5" class="alert-link">MD5加密</a>
-        <a href="/encrypt/base64" class="alert-link">Base64</a>
-        <a href="/encrypt/openssl_encode" class="alert-link">Openssl加密工具</a>
-        <a href="/encrypt/openssl_decode" class="alert-link">Openssl解密工具</a>
-        <a href="/encrypt/hash" class="alert-link">在线Hash计算工具</a>
-    </p>
-    <p>常用对照表:
-        <a href="/tables/rgb" class="alert-link">RGB颜色对照表</a>
-        <a href="/tables/httpstatus" class="alert-link">HTTP状态码表</a>
-        <a href="/tables/httpheader" class="alert-link">HTTP请求头大全</a>
-        <a href="/tables/httpmethod" class="alert-link">HTTP请求方法</a>
-        <a href="/tables/androidmanifest" class="alert-link">Android Manifest描述大全</a>
-        <a href="/tables/geo" class="alert-link">国家代码与区号查询</a>
-    </p>
-    <p>常用工具:
-        <a href="/tools/wordcount" class="alert-link">字数计算</a>
-        <a href="/tools/regex" class="alert-link">正则测试</a>
-        <a href="/convert/qr/" class="alert-link">二维码生成</a>
-        <a href="/encrypt/uuid" class="alert-link">UUID在线生成</a>
-        <a href="/tools/shortcut" class="alert-link">网址快捷方式</a>
-        <a href="/tools/screenshot" class="alert-link">网页截图</a>
-        <a href="/tools/downpage" class="alert-link">网页模版下载</a>
-    </p>
+    <p>加密/解密</p>
+    <div class="map">
+        <a href="/encrypt/md5">MD5加密</a>
+        <a href="/encrypt/base64">Base64</a>
+        <a href="/encrypt/openssl_encode">Openssl加密工具</a>
+        <a href="/encrypt/openssl_decode">Openssl解密工具</a>
+        <a href="/encrypt/hash">在线Hash计算工具</a>
+    </div>
+    <p>常用对照表</p>
+    <div class="map">
+        <a href="/tables/rgb">RGB颜色对照表</a>
+        <a href="/tables/httpstatus">HTTP状态码表</a>
+        <a href="/tables/httpheader">HTTP请求头</a>
+        <a href="/tables/httpmethod">HTTP请求方法</a>
+        <a href="/tables/androidmanifest">Android Manifest描述</a>
+        <a href="/tables/geo">国家代码与区号查询</a>
+    </div>
+    <p>常用工具</p>
+    <div class="map">
+        <a href="/tools/wordcount">字数计算</a>
+        <a href="/tools/regex">正则测试</a>
+        <a href="/tools/qr/">二维码生成</a>
+        <a href="/tools/uuid">UUID在线生成</a>
+        <a href="/tools/shortcut">网址快捷方式</a>
+        <a href="/tools/screenshot">网页截图</a>
+        <a href="/tools/downpage">网页模版下载</a>
+        <a href="/tools/g">Google搜索</a>
+    </div>
+
 </div>
 
 @stop

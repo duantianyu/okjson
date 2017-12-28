@@ -19,7 +19,9 @@ Markdown在线编辑器 - 在线JSON校验格式化工具(OK JSON)
 
 
 @section('content')
-<div class="panel panel-default">
+@include('convert.tab')
+
+    <div class="panel panel-default">
     <div class="panel-heading">
         Markdown在线编辑器
         <div class="text-right" style="float: right; width: 150px;">

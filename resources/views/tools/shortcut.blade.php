@@ -11,7 +11,9 @@
 
 
 @section('content')
-<div class="panel panel-default">
+@include('tools.tab')
+
+    <div class="panel panel-default">
     <div class="panel-heading">
         创建网址桌面快捷方式
     </div>

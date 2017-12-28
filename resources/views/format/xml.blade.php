@@ -12,6 +12,8 @@ XML压缩格式化 - 在线JSON校验格式化工具(OK JSON), json解析,json�
 
 
 @section('content')
+@include('format.tab')
+
 <div class="panel panel-default">
     <div class="panel-heading">
         XML格式化、压缩

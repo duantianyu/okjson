@@ -23,9 +23,6 @@ Route::get('/json/parser', function () {
 Route::get('/json/format', function () {
     return view('json.format');
 });
-Route::get('/g', function () {
-    return view('page/g');
-});
 Route::post('/poster', ['as' => 'sql', 'uses' => 'FormatController@poster']);
 
 //格式化
@@ -50,10 +47,6 @@ Route::get('/convert/time', function () {
 Route::get('/convert/url', function () {
     return view('convert.url');
 });
-Route::get('/convert/qr', function () {
-    return view('convert.qr');
-});
-Route::post('/qr', ['as' => 'qr', 'uses' => 'QrController@generate']);
 
 Route::get('/convert/markdown', function () {
     return view('convert.markdown');
@@ -90,13 +83,10 @@ Route::get('/encrypt/openssl_decode', function () {
 Route::get('/encrypt/hash', function () {
     return view('encrypt.hash');
 });
-Route::get('/encrypt/uuid', function () {
-    return view('encrypt.uuid');
-});
+
 Route::any('/openssl_encode', ['as' => 'openssl_encode', 'uses' => 'EncodeController@openssl_encode']);
 Route::post('/openssl_decode', ['as' => 'openssl_decode', 'uses' => 'EncodeController@openssl_decode']);
 Route::post('/hash', ['as' => 'hash', 'uses' => 'EncodeController@hash']);
-Route::get('/uuid', ['as' => 'uuid', 'uses' => 'EncodeController@uuid']);
 
 
 
@@ -124,6 +114,20 @@ Route::get('/tables/geo', function () {
 });
 
 //tools
+Route::get('/tools/wordcount', function () {
+    return view('tools.wordcount');
+});
+Route::get('/tools/regex', function () {
+    return view('tools.regex');
+});
+Route::get('/tools/qr', function () {
+    return view('tools.qr');
+});
+Route::post('/qr', ['as' => 'qr', 'uses' => 'QrController@generate']);
+Route::get('/tools/uuid', function () {
+    return view('tools.uuid');
+});
+Route::get('/uuid', ['as' => 'uuid', 'uses' => 'EncodeController@uuid']);
 Route::get('/tools/shortcut', function () {
     return view('tools.shortcut');
 });
@@ -133,11 +137,8 @@ Route::get('/tools/screenshot', function () {
 Route::get('/tools/downpage', function () {
     return view('tools.downpage');
 });
-Route::get('/tools/wordcount', function () {
-    return view('tools.wordcount');
-});
-Route::get('/tools/regex', function () {
-    return view('tools.regex');
+Route::get('/tools/g', function () {
+    return view('tools/g');
 });
 Route::post('/screen_shot', ['as' => 'screen_shot', 'uses' => 'ToolsController@screen_shot']);
 Route::post('/shortcut', ['as' => 'shortcut', 'uses' => 'ToolsController@shortcut']);

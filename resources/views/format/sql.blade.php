@@ -11,11 +11,11 @@ SQL格式化、压缩 - 在线JSON校验格式化工具(OK JSON)
 
 @section('head_css')
 <link href="{{ asset('css/jquery-linedtextarea.css') }}" rel="stylesheet" type="text/css">
-<link href="{{ asset('css/bdsstyle.css') }}" rel="stylesheet" type="text/css">
 @stop
 
 
 @section('content')
+@include('format.tab')
 
 
 <div class="panel panel-default">

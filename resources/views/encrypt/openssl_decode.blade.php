@@ -11,6 +11,7 @@ Openssl decode 在线解密工具[Online decrypt tool] - 在线JSON校验格式�
 
 
 @section('content')
+@include('encrypt.tab')
 <div class="panel panel-default">
     <div class="panel-heading">
         在线解密工具[Online decrypt tool]<span style="margin-left:30px;" class="text-muted"><a href="/encrypt/openssl_encode/">在线加密工具</a></span>

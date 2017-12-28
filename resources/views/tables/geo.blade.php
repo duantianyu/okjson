@@ -25,7 +25,9 @@
 
 
 @section('content')
-<div class="panel panel-default">
+@include('tables.tab')
+
+    <div class="panel panel-default">
     <div class="panel-heading">
         国际国家代码与区号查询
     </div>

@@ -11,12 +11,13 @@
 
 @section('head_css')
 <link href="{{ asset('css/jquery-linedtextarea.css') }}" rel="stylesheet" type="text/css">
-<link href="{{ asset('css/bdsstyle.css') }}" rel="stylesheet" type="text/css">
 @stop
 
 
 @section('content')
-<div class="panel panel-default category-description">
+@include('tools.tab')
+
+    <div class="panel panel-default category-description">
     <div class="panel-heading">
         <div class="panel-title">字数计算工具</div>
     </div>

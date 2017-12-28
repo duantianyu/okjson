@@ -12,11 +12,13 @@ HTML/JS压缩格式化 - 在线JSON校验格式化工具(OK JSON), json解析,js
 
 @section('head_css')
 <link href="{{ asset('css/jquery-linedtextarea.css') }}" rel="stylesheet" type="text/css">
-<link href="{{ asset('css/bdsstyle.css') }}" rel="stylesheet" type="text/css">
 @stop
 
 
 @section('content')
+@include('format.tab')
+
+
 <div class="panel panel-default">
     <div class="panel-heading">
         JavaScript/HTML格式化

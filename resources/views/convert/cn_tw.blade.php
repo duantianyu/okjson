@@ -11,7 +11,9 @@
 
 
 @section('content')
-<div class="panel panel-default">
+@include('convert.tab')
+
+    <div class="panel panel-default">
     <div class="panel-heading">
         中文简体繁体转换
     </div>

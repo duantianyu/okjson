@@ -18,3 +18,5 @@ body {
         /*border-left: 1px solid #e7e7e7;*/
     }
 }
+.map-div p{margin: 20px 0 10px}
+.map a{display:inline-block;width:140px;color:#3da70c}

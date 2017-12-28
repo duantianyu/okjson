@@ -20,7 +20,9 @@ HTTP请求方法对照表 - 在线JSON校验格式化工具(OK JSON)
 
 
 @section('content')
-<div class="panel panel-default">
+@include('tables.tab')
+
+    <div class="panel panel-default">
     <div class="panel-heading">
         HTTP请求方法对照表
     </div>

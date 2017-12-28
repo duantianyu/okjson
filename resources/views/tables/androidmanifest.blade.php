@@ -20,7 +20,9 @@ Android Manifest功能与权限描述大全 - 在线JSON校验格式化工具(OK
 
 
 @section('content')
-<div class="panel panel-default">
+@include('tables.tab')
+
+    <div class="panel panel-default">
     <div class="panel-heading">
         Android Manifest功能与权限描述大全
     </div>

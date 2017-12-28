@@ -11,12 +11,13 @@
 
 @section('head_css')
 <link href="{{ asset('css/jquery-linedtextarea.css') }}" rel="stylesheet" type="text/css">
-<link href="{{ asset('css/bdsstyle.css') }}" rel="stylesheet" type="text/css">
 @stop
 
 
 @section('content')
-<div class="panel panel-default">
+@include('tools.tab')
+
+    <div class="panel panel-default">
     <div class="panel-heading">
         网页模板在线下载工具 beta
     </div>

@@ -24,7 +24,9 @@
 
 
 @section('content')
-<div class="panel panel-default">
+@include('tools.tab')
+
+    <div class="panel panel-default">
     <div class="panel-heading">
         在线二维码生成,QR码生成
     </div>

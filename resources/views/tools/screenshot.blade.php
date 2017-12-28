@@ -12,7 +12,9 @@
 
 
 @section('content')
-<div class="panel panel-default">
+@include('tools.tab')
+
+    <div class="panel panel-default">
     <div class="panel-heading">
         在线网页截图工具
     </div>

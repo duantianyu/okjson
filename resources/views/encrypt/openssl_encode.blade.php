@@ -11,7 +11,9 @@
 
 
 @section('content')
-<div class="panel panel-default">
+@include('encrypt.tab')
+
+    <div class="panel panel-default">
     <div class="panel-heading">
         在线加密工具[Online encrypt tool]<span style="margin-left:30px;" class="text-muted"><a href="/encrypt/openssl_decode">在线解密工具</a></span>
     </div>

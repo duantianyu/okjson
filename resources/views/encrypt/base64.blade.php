@@ -11,6 +11,7 @@ Base64加密、Base64解密 - 在线JSON校验格式化工具(OK JSON)
 
 
 @section('content')
+@include('encrypt.tab')
 <div class="panel panel-default">
     <div class="panel-heading">
         Base64加密、解密

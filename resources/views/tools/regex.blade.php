@@ -16,7 +16,9 @@
 
 
 @section('content')
-<div class="panel panel-default">
+@include('tools.tab')
+
+    <div class="panel panel-default">
     <div class="panel-heading">
         网页模板在线下载工具 beta
     </div>

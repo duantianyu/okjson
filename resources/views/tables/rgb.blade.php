@@ -29,6 +29,7 @@ RGB颜色对照表 - 在线JSON校验格式化工具(OK JSON)
 
 
 @section('content')
+@include('tables.tab')
 <div class="panel panel-default">
 <div class="panel-heading">
     RGB颜色对照表

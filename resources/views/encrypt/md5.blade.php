@@ -11,11 +11,11 @@ MD5加密工具 - 在线JSON校验格式化工具(OK JSON)
 
 @section('head_css')
 <link href="{{ asset('css/jquery-linedtextarea.css') }}" rel="stylesheet" type="text/css">
-<link href="{{ asset('css/bdsstyle.css') }}" rel="stylesheet" type="text/css">
 @stop
 
 
 @section('content')
+@include('encrypt.tab')
 <div class="row">
     <div class="col-lg-12">
         <div class="panel panel-default">

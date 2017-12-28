@@ -11,7 +11,9 @@ Google搜索 - 在线JSON校验格式化工具(OK JSON)
 
 
 @section('content')
-<div class="panel panel-default">
+@include('tools.tab')
+
+    <div class="panel panel-default">
     <div class="panel-heading">
         Google搜索，Google镜像搜索
     </div>
