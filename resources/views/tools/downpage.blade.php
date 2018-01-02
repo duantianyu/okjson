@@ -91,7 +91,7 @@
             }, function(d){
             msg.removeClass('alert-danger alert-info alert-success');
             if(d.status){
-                d.msg = '<p>分析完成，zip文件下载地址: &nbsp;&nbsp;<a href="'+d.msg+'" target="_blank">点这里</a></p>';
+                d.msg = '<p>分析完成，zip文件下载地址: &nbsp;&nbsp;<a href="'+d.msg+'" target="_self">点这里</a></p>';
                 msg.addClass('alert-success')
             }else{
                 msg.addClass('alert-danger')
