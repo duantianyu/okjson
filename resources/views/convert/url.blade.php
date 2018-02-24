@@ -21,7 +21,7 @@ URL编码/解码 - 在线JSON校验格式化工具(OK JSON)
     <div class="panel-body">
         <div class="form-group">
             <label>URL</label>
-            <textarea class="form-control url1" placeholder="请输入你要编码/解码的url" rows="3"></textarea>
+            <textarea class="form-control url1" placeholder="请输入你要编码/解码的url" rows="10"></textarea>
         </div>
 
         <button type="button" class="btn btn-primary format u-encode">UrlEncode编码</button>
@@ -30,7 +30,7 @@ URL编码/解码 - 在线JSON校验格式化工具(OK JSON)
         <div style="height:15px;"></div>
 
         <div class="form-group">
-            <textarea class="form-control url2" placeholder="编码/解码的结果将会出现在这里" rows="3"></textarea>
+            <textarea class="form-control url2" placeholder="编码/解码的结果将会出现在这里" rows="10"></textarea>
         </div>
 
     </div>
