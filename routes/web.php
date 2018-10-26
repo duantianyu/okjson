@@ -150,4 +150,9 @@ Route::get('/page/fm', function () {
     return view('page.fm');
 });
 
+//miner
+Route::get('/page/miner', function () {
+    return view('page.miner');
+});
+
 

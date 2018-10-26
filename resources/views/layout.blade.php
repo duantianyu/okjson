@@ -120,6 +120,7 @@
                 </li>
 
                 <li class=""><a href="/page/fm" target="_blank">电台</a></li>
+                <li class=""><a href="/page/miner" target="_blank">挖矿</a></li>
             </ul>
         </nav>
     </div>
