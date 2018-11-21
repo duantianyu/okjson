@@ -140,6 +140,10 @@ Route::get('/tools/downpage', function () {
 Route::get('/tools/g', function () {
     return view('tools/g');
 });
+Route::get('/tools/ip', function () {
+    return view('tools/ip');
+});
+
 Route::post('/screen_shot', ['as' => 'screen_shot', 'uses' => 'ToolsController@screen_shot']);
 Route::post('/shortcut', ['as' => 'shortcut', 'uses' => 'ToolsController@shortcut']);
 Route::post('/down_page', ['as' => 'shortcut', 'uses' => 'ToolsController@down_page']);
