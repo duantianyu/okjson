@@ -116,6 +116,7 @@
                         <li><a href="/tools/screenshot" target="_self">网页截图</a></li>
                         <li><a href="/tools/downpage" target="_self">网页模版下载</a></li>
                         <li><a href="/tools/g" target="_self">Google搜索</a></li>
+                        <li><a href="/tools/ip" target="_self">IP查询</a></li>
                     </ul>
                 </li>
 

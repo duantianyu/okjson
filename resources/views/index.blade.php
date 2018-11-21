@@ -97,6 +97,7 @@
         <a href="/tools/screenshot">网页截图</a>
         <a href="/tools/downpage">网页模版下载</a>
         <a href="/tools/g">Google搜索</a>
+        <a href="/tools/ip">IP查询</a>
     </div>
 
 </div>
