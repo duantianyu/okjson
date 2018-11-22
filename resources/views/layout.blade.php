@@ -140,7 +140,7 @@
 
 <div class="text-center " style="color:#ccc;padding: 20px">
     @yield('footer')
-    Copyright © 2012-2017 豫ICP备13013046号
+    Copyright © 2012-{{ date('Y') }} 豫ICP备13013046号
 </div>
 
 
