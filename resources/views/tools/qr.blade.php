@@ -80,7 +80,7 @@
 
                     </div>
                     <div class="form-group">
-                        <textarea class="form-control QRInput" id="data" name="data" rows="20" placeholder="请输入要生成二维码的信息如：{{ env('APP_URL') }}"></textarea>
+                        <textarea class="form-control QRInput" id="data" name="data" rows="3" placeholder="请输入要生成二维码的信息如：{{ env('APP_URL') }}"></textarea>
                     </div>
                 </div>
 
