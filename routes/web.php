@@ -148,6 +148,11 @@ Route::post('/screen_shot', ['as' => 'screen_shot', 'uses' => 'ToolsController@s
 Route::post('/shortcut', ['as' => 'shortcut', 'uses' => 'ToolsController@shortcut']);
 Route::post('/down_page', ['as' => 'shortcut', 'uses' => 'ToolsController@down_page']);
 
+//common sense
+Route::get('/cs/for_short', function () {
+    return view('common_sense/for_short');
+});
+
 
 //fm
 Route::get('/page/fm', function () {

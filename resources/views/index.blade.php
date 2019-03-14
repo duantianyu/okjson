@@ -99,6 +99,10 @@
         <a href="/tools/g">Google搜索</a>
         <a href="/tools/ip">IP查询</a>
     </div>
+    <p>常识</p>
+    <div class="map">
+        <a href="/cs/for_short">简称</a>
+    </div>
 
 </div>
 
