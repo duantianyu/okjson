@@ -243,40 +243,16 @@ Prop3=19,2';
 
     function getLocation(Request $request)
     {
-        try{
-            $ip = $request->input('ip', self::getRealIp());
-            $res = $this->getContent('http://ip-api.com/json/'.$ip);
+        try {
+            $ip = $request->input('ip', '');
+            $res = $this->getContent('http://ip-api.com/json/' . $ip);
 
             return response()->json(json_decode($res, true));
 
-        }catch (\Exception $e){
+        } catch (\Exception $e) {
             $res['msg'] = '发生错误，请刷新页面重试';
             //$res['msg'] = $e->getTrace();
         }
-    }
-
-    static function getRealIp()
-    {
-        $ip = false;
-        if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
-            $ip = $_SERVER['HTTP_CLIENT_IP'];
-        }
-
-        if (!empty($_SERVER['HTTP_X_FORWARDED_FOR'])) {
-            $ips = explode(', ', $_SERVER['HTTP_X_FORWARDED_FOR']);
-            if ($ip) {
-                array_unshift($ips, $ip);
-                $ip = false;
-            }
-            for ($i = 0; $i < count($ips); $i++) {
-                if (!preg_match('/^(10│172\.16│192\.168)\./', $ips[$i])) {
-                    $ip = $ips[$i];
-                    break;
-                }
-            }
-        }
-
-        return ($ip ? $ip : $_SERVER['REMOTE_ADDR']);
     }
 
 

@@ -91,7 +91,7 @@ IP查询工具 - 在线JSON校验格式化工具(OK JSON)
             _token:_token
         }, function(data){
             msg.removeClass('alert-danger alert-info alert-success');
-            if(data.status === 'success'){
+            if(data.status === 'success' || data.status === 'fail'){
                 var table_body = '';
                 $.each(data, function(k, v) {
                     table_body += "<tr><td align='right' width='25%'>" + k + "</td><td><b>" + v + "</b></td></tr>";
