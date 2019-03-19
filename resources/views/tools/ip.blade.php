@@ -49,7 +49,7 @@ IP查询工具 - 在线JSON校验格式化工具(OK JSON)
     $("#results").css("margin-bottom","35px");
 
     function checkIp(ip){
-        if(ip != ""){
+        if(ip !== ''){
             var reg=/^(?:(?:2[0-4][0-9]\.)|(?:25[0-5]\.)|(?:1[0-9][0-9]\.)|(?:[1-9][0-9]\.)|(?:[0-9]\.)){3}(?:(?:2[0-5][0-5])|(?:25[0-5])|(?:1[0-9][0-9])|(?:[1-9][0-9])|(?:[0-9]))$/;
             if(!reg.test(ip)){
                 return false;
@@ -57,7 +57,7 @@ IP查询工具 - 在线JSON校验格式化工具(OK JSON)
             return true;
         }
     }
-    $.getJSON("http://ip-api.com/json/?callback=?", function(data) {
+    /*$.getJSON("http://ip-api.com/json/?callback=?", function(data) {
         var table_body = '';
         $.each(data, function(k, v) {
             table_body += "<tr><td align='right' width='25%'>" + k + "</td><td><b>" + v + "</b></td></tr>";
@@ -66,29 +66,36 @@ IP查询工具 - 在线JSON校验格式化工具(OK JSON)
         });
         $("#results").html(table_body);
         $("#results td").css("padding","3px");
+    });*/
+    var obj_query = $(".query");
+    getinfo(obj_query, 1);
+    obj_query.on('click', function(){
+        getinfo(this, 2);
     });
 
-    $(".query").on('click', function(){
+    function getinfo(obj, n) {
         var msg = $('.msg');
-        $(this).attr('disabled', true);
+        $(obj).attr('disabled', true);
         msg.removeClass('alert-danger alert-info alert-success').html('').hide();
         var ip = $("#ip").val();
         var _token = '{{ csrf_token() }}';
-        if(!checkIp(ip)){
+        if(n === 2 && !checkIp(ip)){
             msg.addClass('alert-danger').html("<p>请输入正确的IP</p>").show();
-            $(this).attr('disabled', false);
+            $(obj).attr('disabled', false);
             return false;
         }
 
         msg.addClass('alert-info').html('...请稍后...').show();
-        $.post('http://ip-api.com/json/' + ip, {
+        $.post('/ip', {
+            ip:ip,
+            _token:_token
         }, function(data){
             msg.removeClass('alert-danger alert-info alert-success');
-            if(data.status == 'success'){
+            if(data.status === 'success'){
                 var table_body = '';
                 $.each(data, function(k, v) {
                     table_body += "<tr><td align='right' width='25%'>" + k + "</td><td><b>" + v + "</b></td></tr>";
-                    if(k == 'query')
+                    if(k === 'query')
                         $("#ip").val(v);
                 });
                 $("#results").html(table_body);
@@ -96,11 +103,11 @@ IP查询工具 - 在线JSON校验格式化工具(OK JSON)
                 msg.addClass('alert-success').html('查询成功').show();
 
             }else{
-                msg.addClass('alert-danger')
+                msg.addClass('alert-danger').html(data.msg).show();
             }
             $(".query").attr('disabled', false);
         });
-    });
+    }
 })()
 
 </script>
