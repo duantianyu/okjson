@@ -123,7 +123,7 @@ Route::get('/tools/regex', function () {
 Route::get('/tools/qr', function () {
     return view('tools.qr');
 });
-Route::post('/qr', ['as' => 'qr', 'uses' => 'QrController@generate']);
+Route::get('/qr', ['as' => 'qr', 'uses' => 'QrController@generate']);
 Route::get('/tools/uuid', function () {
     return view('tools.uuid');
 });

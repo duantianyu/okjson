@@ -120,7 +120,7 @@
             return;
         }
 
-        $.post('/qr?generate=1&' + $("#qrcode_form").serialize(), {
+        $.get('/qr?generate=1&' + $("#qrcode_form").serialize(), {
             _token:'{{ csrf_token() }}'
         }, function(d){
             if(d.status){
