@@ -68,7 +68,7 @@ IP查询工具 - 在线JSON校验格式化工具(OK JSON)
         $("#results td").css("padding","3px");
     });*/
     var obj_query = $(".query");
-    getinfo(obj_query, 1);
+    //getinfo(obj_query, 1);
     obj_query.on('click', function(){
         getinfo(this, 2);
     });
