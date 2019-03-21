@@ -14,8 +14,8 @@
     <link rel="shortcut icon" href="{{ asset('images/favicon.png') }}" type="image/x-icon">
 
     <!-- Bootstrap Core CSS -->
-    {{--<link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">--}}
-    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    {{--<link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">--}}
 
     <!-- MetisMenu CSS -->
     <link href="{{ asset('css/metisMenu.min.css') }}" rel="stylesheet">
@@ -117,6 +117,7 @@
                         <li><a href="/tools/downpage" target="_self">网页模版下载</a></li>
                         <li><a href="/tools/g" target="_self">Google搜索</a></li>
                         <li><a href="/tools/ip" target="_self">IP查询</a></li>
+                        <li><a href="/tools/diff" target="_self">文本对比</a></li>
                     </ul>
                 </li>
                 <li class="dropdown"><a href="/#" target="_self" class="dropdown-toggle" data-toggle="dropdown">常识 <i class="fa fa-caret-down"></i></a>
@@ -151,8 +152,8 @@
 <!-- jQuery -->
 <script src="{{ asset('js/jquery.min.js') }}" type="text/javascript"></script>
 <!-- Bootstrap Core JavaScript -->
-{{--<script src="{{ asset('js/bootstrap.min.js') }}" type="text/javascript"></script>--}}
-<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+<script src="{{ asset('js/bootstrap.min.js') }}" type="text/javascript"></script>
+{{--<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>--}}
 
 @section('foot_js')
 

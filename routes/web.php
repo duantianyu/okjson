@@ -143,6 +143,9 @@ Route::get('/tools/g', function () {
 Route::get('/tools/ip', function () {
     return view('tools/ip');
 });
+Route::get('/tools/diff', function () {
+    return view('tools/diff');
+});
 
 Route::post('/screen_shot', ['as' => 'screen_shot', 'uses' => 'ToolsController@screen_shot']);
 Route::post('/shortcut', ['as' => 'shortcut', 'uses' => 'ToolsController@shortcut']);

@@ -72,6 +72,11 @@ IP查询工具 - 在线JSON校验格式化工具(OK JSON)
     obj_query.on('click', function(){
         getinfo(this, 2);
     });
+    $('.from').on('keyup', function(e){
+        if($(obj_query).prop('disabled') === false && e.keyCode === 13){
+            getinfo(obj_query, 2);
+        }
+    });
 
     function getinfo(obj, n) {
         var msg = $('.msg');

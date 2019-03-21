@@ -8,4 +8,5 @@
     <li><a href="/tools/downpage">网页模版下载</a></li>
     <li><a href="/tools/g">Google搜索</a></li>
     <li><a href="/tools/ip">IP查询</a></li>
+    <li><a href="/tools/diff">文本对比</a></li>
 </ul>

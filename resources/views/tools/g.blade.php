@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('meta')
-<meta name="keywords" content="google搜索,谷歌搜索">
+<meta name="keywords" content="google搜索,谷歌搜索 - 在线JSON校验格式化工具">
 <meta name="description" content="谷歌搜索免费为需求者提供谷歌新闻,谷歌视频,google搜索,谷歌学术等实时搜索结果,国内上网搜索就上谷歌搜索">
 @stop
 
@@ -51,7 +51,7 @@ Google搜索 - 在线JSON校验格式化工具(OK JSON)
         submit_form();
     });
     $('.kwd').on('keyup', function(e){
-        if(e.keyCode == 13){
+        if(e.keyCode === 13){
             submit_form();
         }
     });

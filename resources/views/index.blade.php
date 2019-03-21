@@ -98,6 +98,7 @@
         <a href="/tools/downpage">网页模版下载</a>
         <a href="/tools/g">Google搜索</a>
         <a href="/tools/ip">IP查询</a>
+        <a href="/tools/diff">文本对比</a>
     </div>
     <p>常识</p>
     <div class="map">

@@ -20,3 +20,5 @@ body {
 }
 .map-div p{margin: 20px 0 10px}
 .map a{display:inline-block;width:140px;color:#3da70c}
+
+.container>.nav>li>a{padding: 8px 10px;}
