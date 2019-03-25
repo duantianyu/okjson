@@ -15,12 +15,11 @@ use Illuminate\Support\Str;
 use Knp\Snappy\Image;
 use ZipArchive;
 use DiDom\Document;
-use Curl\Curl;
 
 class ToolsController extends Controller
 {
     public $my_url;
-    public $google_verify_url = 'https://www.google.com/recaptcha/api/siteverify';
+    public $google_verify_url = 'https://www.recaptcha.net/recaptcha/api/siteverify';//国外https://www.google.com/recaptcha/api/siteverify
     public $img_path = 'uploads/images/';
     public $base_web_path = 'uploads/web/';
     public $web_name;
@@ -285,32 +284,35 @@ Prop3=19,2';
         $g_recaptcha_response_v2 = $request->input('g_recaptcha_response_v2', '');
         $g_recaptcha_response_v3 = $request->input('g_recaptcha_response_v3', '');
 
-        $post = [];
         if ($g_recaptcha_response_v2) {
             $post = [
                 'secret' => env('RE_CAPTCHA_SERVER_2'),
                 'response' => $g_recaptcha_response_v2,
             ];
-        }
-        if ($g_recaptcha_response_v3) {
+        } elseif ($g_recaptcha_response_v3) {
             $post = [
                 'secret' => env('RE_CAPTCHA_SERVER_3'),
                 'response' => $g_recaptcha_response_v3,
             ];
+        } else {
+            return response()->json([
+                                        'success' => false,
+                                        'msg' => '请进行人机身份验证',
+                                    ]);
+
         }
 
         $post_string = http_build_query($post);
 
 
         try {
-            $curl = new Curl();
-            $res = $curl->request('post', $this->google_verify_url, $post_string);
+            $res = $this->getContent($this->google_verify_url, $post_string);
 
-            return response()->json($res);
+            return response()->json(json_decode($res, true));
 
         } catch (\Exception $e) {
-            //$res['msg'] = '发生错误，请刷新页面重试';
-            $res['msg'] = $e->getTrace();
+            $res['msg'] = '发生错误，请刷新页面重试';
+            //$res['msg'] = $e->getTrace();
         }
     }
 
