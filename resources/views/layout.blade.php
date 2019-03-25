@@ -120,6 +120,7 @@
                         <li><a href="/tools/diff" target="_self">文本对比</a></li>
                     </ul>
                 </li>
+                <li class=""><a href="/tools/verify" target="_self">验证码</a></li>
                 <li class="dropdown"><a href="/#" target="_self" class="dropdown-toggle" data-toggle="dropdown">常识 <i class="fa fa-caret-down"></i></a>
                     <ul class="dropdown-menu" role="menu">
                         <li><a href="/cs/for_short" target="_self">简称</a></li>

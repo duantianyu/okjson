@@ -100,9 +100,17 @@
         <a href="/tools/ip">IP查询</a>
         <a href="/tools/diff">文本对比</a>
     </div>
+    <p>验证码</p>
+    <div class="map">
+        <a href="/tools/verify">验证码</a>
+    </div>
     <p>常识</p>
     <div class="map">
         <a href="/cs/for_short">简称</a>
+    </div>
+    <p>电台</p>
+    <div class="map">
+        <a href="/page/fm">电台</a>
     </div>
 
 </div>
