@@ -15,10 +15,12 @@ use Illuminate\Support\Str;
 use Knp\Snappy\Image;
 use ZipArchive;
 use DiDom\Document;
+use Curl\Curl;
 
 class ToolsController extends Controller
 {
     public $my_url;
+    public $google_verify_url = 'https://www.google.com/recaptcha/api/siteverify';
     public $img_path = 'uploads/images/';
     public $base_web_path = 'uploads/web/';
     public $web_name;
@@ -243,8 +245,8 @@ Prop3=19,2';
 
     function getLocation(Request $request)
     {
+        $ip = $request->input('ip', '');
         try {
-            $ip = $request->input('ip', '');
             $res = $this->getContent('http://ip-api.com/json/' . $ip);
 
             return response()->json(json_decode($res, true));
@@ -256,19 +258,60 @@ Prop3=19,2';
     }
 
 
-    function getContent($url)
+    function getContent($url, $post_string = '')
     {
-        $curl = curl_init();
-        curl_setopt($curl, CURLOPT_URL, $url);
-        curl_setopt($curl, CURLOPT_USERAGENT, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36');
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-        curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1);
-        curl_setopt($curl, CURLOPT_CONNECTTIMEOUT, 20);
-        curl_setopt($curl, CURLOPT_REFERER, $url);
-        $content = curl_exec($curl);
-        curl_close($curl);
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_USERAGENT, 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36');
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+        curl_setopt($ch, CURLOPT_CONNECTTIMEOUT, 20);
+        curl_setopt($ch, CURLOPT_REFERER, $url);
+
+        if ($post_string) {
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $post_string);
+
+
+        }
+        $content = curl_exec($ch);
+        curl_close($ch);
 
         return $content;
+    }
+
+    function verify(Request $request)
+    {
+        $g_recaptcha_response_v2 = $request->input('g_recaptcha_response_v2', '');
+        $g_recaptcha_response_v3 = $request->input('g_recaptcha_response_v3', '');
+
+        $post = [];
+        if ($g_recaptcha_response_v2) {
+            $post = [
+                'secret' => env('RE_CAPTCHA_SERVER_2'),
+                'response' => $g_recaptcha_response_v2,
+            ];
+        }
+        if ($g_recaptcha_response_v3) {
+            $post = [
+                'secret' => env('RE_CAPTCHA_SERVER_3'),
+                'response' => $g_recaptcha_response_v3,
+            ];
+        }
+
+        $post_string = http_build_query($post);
+
+
+        try {
+            $curl = new Curl();
+            $res = $curl->request('post', $this->google_verify_url, $post_string);
+
+            return response()->json($res);
+
+        } catch (\Exception $e) {
+            //$res['msg'] = '发生错误，请刷新页面重试';
+            $res['msg'] = $e->getTrace();
+        }
     }
 
 }

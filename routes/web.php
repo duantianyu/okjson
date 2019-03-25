@@ -146,11 +146,15 @@ Route::get('/tools/ip', function () {
 Route::get('/tools/diff', function () {
     return view('tools/diff');
 });
+Route::get('/tools/verify', function () {
+    return view('tools/verify');
+});
 
 Route::post('/screen_shot', ['as' => 'screen_shot', 'uses' => 'ToolsController@screen_shot']);
 Route::post('/shortcut', ['as' => 'shortcut', 'uses' => 'ToolsController@shortcut']);
 Route::post('/down_page', ['as' => 'down_page', 'uses' => 'ToolsController@down_page']);
 Route::post('/ip', ['as' => 'ip', 'uses' => 'ToolsController@getLocation']);
+Route::post('/verify', ['as' => 'verify', 'uses' => 'ToolsController@verify']);
 
 //common sense
 Route::get('/cs/for_short', function () {
