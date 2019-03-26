@@ -310,7 +310,7 @@ Prop3=19,2';
             json_decode($res, true);
             if (json_last_error() == JSON_ERROR_NONE) {
                 $res = json_decode($res, true);
-                if (isset($res['success']) && $res['success']) {
+                if (isset($res['score']) && isset($res['success']) && $res['success']) {
                     $res['score'] >= '0.5' ? '' : $res['success'] = false;
                 }
             } else {
