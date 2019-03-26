@@ -307,12 +307,31 @@ Prop3=19,2';
 
         try {
             $res = $this->getContent($this->google_verify_url, $post_string);
+            json_decode($res, true);
+            if (json_last_error() == JSON_ERROR_NONE) {
+                $res = json_decode($res, true);
+                if (isset($res['success']) && $res['success']) {
+                    $res['score'] >= '0.5' ? '' : $res['success'] = false;
+                }
+            } else {
+                $res = [
+                    'success' => false,
+                    'challenge_ts' => date('Y-m-d\TH:i:s\Z', (time() - 28800)),
+                    'score' => '0.5',
+                    'action' => 'verify',
+                    'hostname' => $_SERVER['HTTP_HOST'],
+                ];
+            }
 
-            return response()->json(json_decode($res, true));
+
+            return response()->json($res);
 
         } catch (\Exception $e) {
             $res['msg'] = '发生错误，请刷新页面重试';
-            //$res['msg'] = $e->getTrace();
+
+            $res['msg'] = $e->getTrace();
+            return response()->json($res);
+
         }
     }
 
