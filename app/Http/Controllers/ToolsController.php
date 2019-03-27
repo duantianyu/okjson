@@ -15,11 +15,16 @@ use Illuminate\Support\Str;
 use Knp\Snappy\Image;
 use ZipArchive;
 use DiDom\Document;
+use App\Helpers;
+use App\Lib\Geetest;
+
 
 class ToolsController extends Controller
 {
     public $my_url;
-    public $google_verify_url = 'https://www.recaptcha.net/recaptcha/api/siteverify';//国外https://www.google.com/recaptcha/api/siteverify
+    public $google_verify_url = 'https://www.recaptcha.net/recaptcha/api/siteverify';//google验证，国外https://www.google.com/recaptcha/api/siteverify
+    public $qq_verify_url = 'https://ssl.captcha.qq.com/ticket/verify';//qq验证
+    public $vaptcha_url = 'http://api.vaptcha.com/v2/validate';//vaptcha验证
     public $img_path = 'uploads/images/';
     public $base_web_path = 'uploads/web/';
     public $web_name;
@@ -55,7 +60,7 @@ class ToolsController extends Controller
         $this->my_url = env('APP_URL');
     }
 
-
+    //网址快捷方式
     function shortcut(Request $request)
     {
         $my_url = $this->my_url;
@@ -79,7 +84,7 @@ Prop3=19,2';
         return $shortcut;
     }
 
-
+    //网页截图
     function screen_shot(Request $request)
     {
         $url = $request->input('url', $this->my_url);
@@ -112,7 +117,7 @@ Prop3=19,2';
         return response()->json($res);
     }
 
-
+    //网页模板下载
     function down_page(Request $request)
     {
         set_time_limit(600);
@@ -209,7 +214,12 @@ Prop3=19,2';
         readfile($filename);//输出文件;*/
     }
 
-
+    /**
+     * 写入
+     * @param string $url 资源地址
+     * @param string $folder 目录
+     * @return  string
+     */
     private function save($url, $folder)
     {
         $img_save_path = $this->web_path . '/' . $this->web_name . '/' . $folder . '/';
@@ -233,7 +243,11 @@ Prop3=19,2';
         return $file_name;
     }
 
-
+    /**
+     * 写入
+     * @param string $path 目录
+     * @return  null
+     */
     static function createDir($path)
     {
         if (!file_exists($path)) {
@@ -242,6 +256,7 @@ Prop3=19,2';
         }
     }
 
+    //获取ip位置信息
     function getLocation(Request $request)
     {
         $ip = $request->input('ip', '');
@@ -256,7 +271,12 @@ Prop3=19,2';
         }
     }
 
-
+    /**
+     * 写入
+     * @param string $url 网址
+     * @param string $post_string 参数,如a=aa&b=bb
+     * @return  string
+     */
     function getContent($url, $post_string = '')
     {
         $ch = curl_init();
@@ -279,6 +299,7 @@ Prop3=19,2';
         return $content;
     }
 
+    //google验证
     function verify(Request $request)
     {
         $g_recaptcha_response_v2 = $request->input('g_recaptcha_response_v2', '');
@@ -327,12 +348,200 @@ Prop3=19,2';
             return response()->json($res);
 
         } catch (\Exception $e) {
+            $res['success'] = false;
             $res['msg'] = '发生错误，请刷新页面重试';
 
-            $res['msg'] = $e->getTrace();
+            //$res['msg'] = $e->getTrace();
             return response()->json($res);
 
         }
     }
 
+    //qq验证
+    function verifyQQ(Request $request)
+    {
+        $ticket = $request->input('ticket', '');
+        $randstr = $request->input('randstr', '');
+
+        if ($ticket && $randstr) {
+            $post = [
+                'aid' => env('T_APP_ID'),
+                'AppSecretKey' => env('T_APP_SECRET_KEY'),
+                'Ticket' => $ticket,
+                'Randstr' => $randstr,
+                'UserIP' => Helpers::getIp(),
+            ];
+        } else {
+            return response()->json([
+                                        'response' => false,
+                                        'err_msg' => '请控制图片对齐缺口',
+                                    ]);
+
+        }
+
+        $post_string = http_build_query($post);
+
+
+        try {
+
+            $res = $this->getContent($this->qq_verify_url, $post_string);
+            json_decode($res, true);
+            if (json_last_error() == JSON_ERROR_NONE) {
+                $res = json_decode($res, true);
+
+            } else {
+                $res = [
+                    'response' => 0,
+                    'evil_level' => '50',
+                    'err_msg' => '获取腾讯返回失败',
+                ];
+            }
+
+
+            return response()->json($res);
+
+        } catch (\Exception $e) {
+            $res['response'] = 0;
+            $res['msg'] = '发生错误，请刷新页面重试';
+
+            //$res['msg'] = $e->getTrace();
+
+            return response()->json($res);
+
+        }
+    }
+
+    //Vaptcha验证
+    function verifyVaptcha(Request $request)
+    {
+        $token = $request->input('token', '');
+
+        if ($token) {
+            $post = [
+                'id' => env('VAPTCHA_VID'),
+                'secretkey' => env('VAPTCHA_KEY'),
+                'scene' => '01',
+                'token' => $token,
+                'ip' => Helpers::getIp(),
+            ];
+        } else {
+            return response()->json([
+                                        'success' => 0,
+                                        'err_msg' => '请绘制图中手势完成人机验证',
+                                    ]);
+
+        }
+
+        $post_string = http_build_query($post);
+
+
+        try {
+
+            $res = $this->getContent($this->vaptcha_url, $post_string);
+            json_decode($res, true);
+            if (json_last_error() == JSON_ERROR_NONE) {
+                $res = json_decode($res, true);
+
+            } else {
+                $res = [
+                    'success' => 0,
+                    'score' => '50',
+                    'msg' => '获取vaptcha返回失败',
+                ];
+            }
+
+
+            return response()->json($res);
+
+        } catch (\Exception $e) {
+            $res['success'] = 0;
+            $res['msg'] = '发生错误，请刷新页面重试';
+
+            //$res['msg'] = $e->getTrace();
+
+            return response()->json($res);
+
+        }
+    }
+
+
+    //Geetest验证
+    function verifyGeetest(Request $request)
+    {
+        $data = [
+            'user_id' => 'user' . mt_rand(150000, 999999), // 网站用户id
+            'client_type' => 'web', //web:电脑上的浏览器；h5:手机上的浏览器，包括移动应用内完全内置的web_view；native：通过原生SDK植入APP应用的方式
+            'ip_address' => Helpers::getIp(), // 请在此处传输用户请求验证时所携带的IP
+        ];
+
+
+        try {
+            $GtSdk = new Geetest(env('GT_ID'), env('GT_KEY'));
+            $status = $GtSdk->pre_process($data, 1);
+            session(['gtserver' => $status]);
+            session(['user_id' => $data['user_id']]);
+            echo $GtSdk->get_response_str();
+
+        } catch (\Exception $e) {
+            $res['msg'] = '发生错误，请刷新页面重试';
+
+            //$res['msg'] = $e->getTrace();
+
+            return response()->json($res);
+
+        }
+
+
+    }
+
+    //Geetest验证
+    function validateGeetest(Request $request)
+    {
+        $challenge = $request->input('geetest_challenge', '');
+        $validate = $request->input('geetest_validate', '');
+        $seccode = $request->input('geetest_seccode', '');
+
+        $data = [
+            'user_id' => session('user_id'), // 网站用户id
+            'client_type' => 'web', //web:电脑上的浏览器；h5:手机上的浏览器，包括移动应用内完全内置的web_view；native：通过原生SDK植入APP应用的方式
+            'ip_address' => Helpers::getIp(), // 请在此处传输用户请求验证时所携带的IP
+        ];
+
+        $success = [
+            'status' => 'success',
+            'gtserver' => session('gtserver'),
+        ];
+        $fail = [
+            'status' => 'fail',
+            'gtserver' => session('gtserver'),
+        ];
+        try {
+            $GtSdk = new Geetest(env('GT_ID'), env('GT_KEY'));
+            if (session('gtserver') == 1) {   //服务器正常
+                $result = $GtSdk->success_validate($challenge, $validate, $seccode, $data);
+                if ($result) {
+                    return response()->json($success);
+                } else {
+                    return response()->json($fail);
+                }
+            } else {  //服务器宕机,走failback模式
+                if ($GtSdk->fail_validate($challenge, $validate, $seccode)) {
+                    return response()->json($success);
+                } else {
+                    return response()->json($fail);
+                }
+            }
+        } catch (\Exception $e) {
+            $res['status'] = 'fail';
+            $res['msg'] = '发生错误，请刷新页面重试';
+
+            //$res['msg'] = $e->getTrace();
+
+            return response()->json($res);
+
+
+        }
+
+
+    }
 }

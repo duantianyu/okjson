@@ -155,6 +155,12 @@ Route::post('/shortcut', ['as' => 'shortcut', 'uses' => 'ToolsController@shortcu
 Route::post('/down_page', ['as' => 'down_page', 'uses' => 'ToolsController@down_page']);
 Route::post('/ip', ['as' => 'ip', 'uses' => 'ToolsController@getLocation']);
 Route::post('/verify', ['as' => 'verify', 'uses' => 'ToolsController@verify']);
+Route::post('/verifyQQ', ['as' => 'verifyQQ', 'uses' => 'ToolsController@verifyQQ']);
+Route::post('/verifyVaptcha', ['as' => 'verifyVaptcha', 'uses' => 'ToolsController@verifyVaptcha']);
+
+Route::get('/verifyGeetest', ['as' => 'verifyGeetest', 'uses' => 'ToolsController@verifyGeetest']);
+Route::post('/validateGeetest', ['as' => 'validateGeetest', 'uses' => 'ToolsController@validateGeetest']);
+
 
 //common sense
 Route::get('/cs/for_short', function () {
