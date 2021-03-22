@@ -115,7 +115,7 @@
         $('.generate').attr('disabled', true);
 
         if($('#data').val() == ''){
-            $('.msg').html('请输入要生成二维码的信息').show();
+            $('.msg').addClass('alert-danger').html('请输入要生成二维码的信息').show();
             $('.generate').attr('disabled', false);
             return;
         }

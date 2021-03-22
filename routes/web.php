@@ -150,6 +150,13 @@ Route::get('/tools/verify', function () {
     return view('tools/verify');
 });
 
+//校验工具
+Route::get('/verify/idCard', function () {
+    return view('verify/idCard');
+});
+Route::post('/getIdCardInfo', ['as' => 'getIdCardInfo', 'uses' => 'IdCardController@getInfo']);
+
+
 Route::post('/screen_shot', ['as' => 'screen_shot', 'uses' => 'ToolsController@screen_shot']);
 Route::post('/shortcut', ['as' => 'shortcut', 'uses' => 'ToolsController@shortcut']);
 Route::post('/down_page', ['as' => 'down_page', 'uses' => 'ToolsController@down_page']);
